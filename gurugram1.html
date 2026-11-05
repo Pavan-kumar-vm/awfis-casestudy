@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awfis Coworking Space</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --brand-gray: #7d7575;
+      --brand-dark-gray: #625b5b;
+      --brand-light: #f8f9fa;
+    }
+    html, body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    .custom-sticky-header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      width: 100%;
+    }
+
+    .bg-custom-nav {
+      background-color: var(--brand-gray);
+    }
+    .navbar-dark .navbar-nav .nav-link {
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #e2e2e2;
+    }
+    .dropdown-menu {
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .sub-nav-band {
+      background-color: var(--brand-dark-gray);
+      color: #fff;
+    }
+    .sub-nav-band a {
+      color: #e5e5e5;
+      text-decoration: none;
+    }
+    .sub-nav-band a:hover {
+      text-decoration: underline;
+    }
+
+    /* Filter Bar */
+    .filter-band {
+      background-color: var(--brand-gray);
+      color: #fff;
+    }
+    .filter-band .btn-filter {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 0.85rem;
+    }
+    .filter-band .btn-filter:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+
+    .workspace-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      height: 100%;
+    }
+    .workspace-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+    .workspace-card .card-img-top {
+      height: 220px;
+      object-fit: cover;
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+    }
+
+    .content-section {
+      line-height: 1.7;
+    }
+    .content-section h3 {
+      font-size: 1.4rem;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    .faq-section {
+      background-color: #f1f1ed;
+      border-radius: 12px;
+    }
+
+    footer {
+      background-color: #f4f8fb;
+      color: #333;
+    }
+    footer a {
+      color: #333;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+    .footer-contact-item img {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="custom-sticky-header shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-nav py-2 px-3 px-lg-4">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <img src="https://www.awfis.com/images/logo_black.png" alt="Awfis Logo" style="max-height: 40px; background: white; padding: 4px; border-radius: 4px;">
+          <img src="https://www.awfis.com/images/GPTW_Cert_2026.png" alt="Certificate" style="height: 32px; width: 32px;">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">LOCATIONS</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="dehli.html">Coworking Space in Delhi</a></li>
+                <li><a class="dropdown-item" href="#">Coworking Space in Gurgaon</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">SOLUTIONS</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Coworking</a></li>
+                <li><a class="dropdown-item" href="#">Mobility</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ENTERPRISE</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Transform</a></li>
+                <li><a class="dropdown-item" href="#">Managed Office</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">MEETING ROOMS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">DAY PASS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">VIRTUAL OFFICE</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">INVESTORS RELATIONS</a></li>
+          </ul>
+
+          <div class="d-flex gap-2">
+            <a href="#" class="btn btn-outline-light btn-sm px-3">LOGIN</a>
+            <a href="#" class="btn btn-danger btn-sm px-3">SIGN UP</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="sub-nav-band py-2 px-3 px-lg-4">
+      <div class="container-fluid">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0 small">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Office Spaces</a></li>
+            <li class="breadcrumb-item active text-white" aria-current="page">Gurugram</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="filter-band py-3 px-3 px-lg-4 border-top border-secondary">
+      <div class="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        <h1 class="h4 mb-0 fw-bold">Coworking Space in Gurugram</h1>
+
+        <div class="d-flex flex-wrap align-items-center gap-2">
+          <span class="small fw-semibold text-uppercase text-light me-1">Filter By:</span>
+          
+          <div class="dropdown">
+            <button class="btn btn-filter btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">CITY</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Mumbai</a></li>
+              <li><a class="dropdown-item" href="#">Delhi</a></li>
+              <li><a class="dropdown-item" href="#">Bengaluru</a></li>
+              <li><a class="dropdown-item" href="#">Chennai</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn btn-filter btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">LOCALITY</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Sector 20</a></li>
+              <li><a class="dropdown-item" href="#">Sector 25</a></li>
+              <li><a class="dropdown-item" href="#">Ambeince mall</a></li>
+              <li><a class="dropdown-item" href="#">Golf course</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn btn-filter btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">TYPE</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Fixed Desk</a></li>
+              <li><a class="dropdown-item" href="#">Cabins</a></li>
+              <li><a class="dropdown-item" href="#">Meeting Rooms</a></li>
+              <li><a class="dropdown-item" href="#">Day Pass</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-xl my-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+ 
+      <div class="col">
+        <div class="card workspace-card">
+          <img src="https://awfis-bpm-bucket.s3.ap-south-1.amazonaws.com/compliance/1788427821097_13.jpg" class="card-img-top" alt="Awfis workspace">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div class="row text-center border-bottom pb-2 mb-3 g-1 small">
+              <div class="col-6 border-end">
+                <span class="text-muted d-block">Time</span>
+                <strong>08:00 AM-08:00 PM</strong>
+              </div>
+              <div class="col-6">
+                <span class="text-muted d-block">Days</span>
+                <strong>S M T W T F S</strong>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <h5 class="mb-0 fw-bold">₹35,900</h5>
+              <button class="btn btn-danger btn-sm px-3">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card workspace-card">
+          <img src="https://awfis-bpm-bucket.s3.ap-south-1.amazonaws.com/compliance/1763965269849.png" class="card-img-top" alt="Awfis workspace">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div class="row text-center border-bottom pb-2 mb-3 g-1 small">
+              <div class="col-6 border-end">
+                <span class="text-muted d-block">Time</span>
+                <strong>08:00 AM-08:00 PM</strong>
+              </div>
+              <div class="col-6">
+                <span class="text-muted d-block">Days</span>
+                <strong>S M T W T F S</strong>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <h5 class="mb-0 fw-bold">₹35,900</h5>
+              <button class="btn btn-danger btn-sm px-3">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card workspace-card">
+          <img src="https://s3.ap-south-1.amazonaws.com/awfis-live-data/SPACE/bfcc6f26b1b2053a591067f04d1e50eb.jpg" class="card-img-top" alt="Awfis workspace">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div class="row text-center border-bottom pb-2 mb-3 g-1 small">
+              <div class="col-6 border-end">
+                <span class="text-muted d-block">Time</span>
+                <strong>08:00 AM-08:00 PM</strong>
+              </div>
+              <div class="col-6">
+                <span class="text-muted d-block">Days</span>
+                <strong>S M T W T F S</strong>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <h5 class="mb-0 fw-bold">₹35,900</h5>
+              <button class="btn btn-danger btn-sm px-3">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card workspace-card">
+          <img src="https://awfis-bpm-bucket.s3.ap-south-1.amazonaws.com/compliance/1708396409447.png" class="card-img-top" alt="Awfis workspace">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div class="row text-center border-bottom pb-2 mb-3 g-1 small">
+              <div class="col-6 border-end">
+                <span class="text-muted d-block">Time</span>
+                <strong>08:00 AM-08:00 PM</strong>
+              </div>
+              <div class="col-6">
+                <span class="text-muted d-block">Days</span>
+                <strong>S M T W T F S</strong>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <h5 class="mb-0 fw-bold">₹35,900</h5>
+              <button class="btn btn-danger btn-sm px-3">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <article class="container-xl my-5 content-section">
+    <h3>Shared Office Space in Gurugram</h3>
+    <p>Delhi NCR has emerged as a busy commercial destination, with the continuous rise in demand for flexible space. According to the latest data, Delhi-NCR has approximately 6.6 million sq ft of flexible office space and ranks in the top three Indian cities in net absorption. If you are looking for a co working space in Delhi that offers professionalism and vibrancy, Awfis provides a great combination of amenities, community, and location.</p>
+
+    <h3>Find the Best Coworking Office Space in Gurugram</h3>
+    <p>Looking for the best coworking space in Delhi? Awfis has many centres, and we operate in prime locations in Delhi like Connaught Place, Shalimar Bagh, Mathura Road, Nelson Mandela Marg, and Qutab Institutional Area. These coworking office space in Delhi hubs have flexible desk plans, dedicated desks, private cabins and managed offices- all catering to the size and shape of your team.</p>
+    <p>Prices for monthly plans start around Rs.7,999 for dedicated desks and can go up to Rs.15,999 for a premium cabin at Connaught Place. Want flexibility? Some centres offer day passes starting from Rs.300–Rs.350/day for flexi desks in Shalimar Bagh or Connaught Place, in case you have an impromptu meeting or an offsite day.</p>
+
+    <h3>What’s So Special about Coworking Spaces in Gurugram</h3>
+    <p>Choosing a coworking office space in Delhi via Awfis means tapping into a dynamic ecosystem packed with:</p>
+    <ul>
+      <li>High-speed internet, meeting rooms, printing credits, and free coffee/tea</li>
+      <li>Secure entry (NFC access), CCTV coverage, and 24/7 support at select centres</li>
+      <li>Vibrant ambience with rock-pods, collaboration zones, lounge areas, and pantry facilities</li>
+    </ul>
+    <p>Delhi people value accessibility. Most Awfis centres can be reached by walking from one of the metro stations such as Rajiv Chowk (CP), Sarita Vihar, Vasant Vihar, or Shalimar Bagh. This is one of the main reasons businesses opt for shared office space in Delhi: it combines connectivity, comfort and corporate readiness.</p>
+
+    <h3>Explore Top Coworking Space in Delhi for Rent</h3>
+    <p>Looking to rent a coworking office space in Delhi? Here are standout options:</p>
+    <ol>
+      <li class="mb-2"><strong>Awfis Connaught Place (CP)</strong>
+        <ul>
+          <li>Over 240 workstations, 4 meeting rooms</li>
+          <li>Flex desk rates ~Rs.350/day, monthly cabin rates up to Rs.15,999/month</li>
+          <li>Surrounding metro access via Rajiv Chowk, plus cafes and shops nearby</li>
+        </ul>
+      </li>
+      <li class="mb-2"><strong>Awfis Ambience Tower, Shalimar Bagh</strong>
+        <ul>
+          <li>Flexi desks from Rs.300/day, dedicated desks ~Rs.11,000/month</li>
+          <li>Modern workspace, high-speed Wi-Fi, event-ready infrastructure</li>
+        </ul>
+      </li>
+      <li class="mb-2"><strong>Awfis Nelson Mandela Marg &amp; Mathura Road Centres</strong>
+        <ul>
+          <li>150+ to 400+ workstations, multiple meeting rooms, collab zones</li>
+          <li>Private cabins, fixed desks, and pay–per–use lounges available</li>
+        </ul>
+      </li>
+    </ol>
+  </article>
+
+  <section class="container-xl my-5 p-4 p-md-5 faq-section">
+    <div class="text-center mb-4">
+      <h2 class="h3 fw-bold">Frequently Asked Questions</h2>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="accordion" id="faqCol1">
+          <div class="accordion-item mb-2 shadow-sm border-0 rounded overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                What options are available for coworking space in Gurugram at Awfis?
+              </button>
+            </h2>
+            <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqCol1">
+              <div class="accordion-body">
+                Awfis offers flexi desk, dedicated desks, private cabins, and managed team offices across Delhi centres.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item shadow-sm border-0 rounded overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                Can you get a day pass or short time in Gurugram office?
+              </button>
+            </h2>
+            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqCol1">
+              <div class="accordion-body">
+                Yes, coworking space one-day passes are available in Gurugram.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="accordion" id="faqCol2">
+          <div class="accordion-item mb-2 shadow-sm border-0 rounded overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                What amenities are included in Awfis coworking space in Gurugram?
+              </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqCol2">
+              <div class="accordion-body">
+                You get high-speed Wi-Fi, printing credits, meeting rooms, tea/coffee, pantry access, ergonomic seating, secure entry and lounges.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item shadow-sm border-0 rounded overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                How to book coworking spaces in Gurugram?
+              </button>
+            </h2>
+            <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqCol2">
+              <div class="accordion-body">
+                Visit the Awfis website or mobile app, select your coworking centre, choose your date or month, and complete the booking.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-top py-5">
+    <div class="container-xl">
+      <div class="row g-4 justify-content-between">
+        <div class="col-6 col-md-3">
+          <h5 class="fw-bold mb-3">About</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2 small">
+            <li><a href="#">About Awfis</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Workspace Inside</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <h5 class="fw-bold mb-3">Products</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2 small">
+            <li><a href="#">Space solution</a></li>
+            <li><a href="#">Coworking</a></li>
+            <li><a href="#">Enterprise</a></li>
+            <li><a href="#">Mobility</a></li>
+            <li><a href="#">Awfis transform</a></li>
+            <li><a href="#">Elite</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <h5 class="fw-bold mb-3">Contact</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2 small">
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Request A Visit</a></li>
+            <li><a href="#">Find Your Space</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="fw-bold mb-3">Connect With Us</h5>
+          <div class="social-icons d-flex gap-2 mb-3">
+            <img src="https://www.awfis.com/images/social_icon_fb.jpg" alt="Facebook">
+            <img src="https://www.awfis.com/images/social_icon_ins.jpg" alt="Instagram">
+            <img src="https://www.awfis.com/images/social_icon_twe.jpg" alt="Twitter">
+            <img src="https://www.awfis.com/images/social_icon_link.jpg" alt="LinkedIn">
+          </div>
+          <div class="d-flex flex-column gap-2 small">
+            <div class="footer-contact-item d-flex gap-2">
+              <img src="https://www.awfis.com/images/EnvelopeSimple.svg" alt="Email">
+              <a href="mailto:info@awfis.com">info@awfis.com</a>
+            </div>
+            <div class="footer-contact-item d-flex gap-2">
+              <img src="https://www.awfis.com/images/PhoneCall.svg" alt="Phone">
+              <a href="tel:18802586633">1880 258 6633</a>
+            </div>
+            <div class="footer-contact-item d-flex gap-2">
+              <img src="https://www.awfis.com/images/MapPinLine.svg" alt="Address">
+              <span>Awfis Space Solutions Limited, C-28/29, Kissan Bhawan, Qutab Institutional Area, New Delhi - 110016</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

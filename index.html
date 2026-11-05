@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awfis - Responsive Workspace Solutions</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        .marquee-container {
+            background-color: #111;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+            font-size: 0.875rem;
+        }
+
+        .marquee-track {
+            display: inline-block;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .navbar-custom {
+            background-color: #000;
+        }
+
+        .navbar-custom .nav-link,
+        .navbar-custom .navbar-brand {
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .dropdown-menu {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1;
+            color: #000;
+        }
+
+        .carousel-hero {
+            position: relative;
+        }
+
+        .carousel-item {
+            height: 570px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: infinite;
+            position: relative;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .slide1 {
+            background-image: url("https://s3-ap-south-1.amazonaws.com/uploaddocumentstomakeitpublic/wp-content/uploads/2025/07/08151324/DSC02308-HDR.jpg");
+        }
+
+        .slide2 {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQTldeaqo_dJSoRpsz4ZbGw4xVKo5V8_e3oQUUitMpYQ&s=10");
+        }
+
+        .slide3 {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0LaR3B1Ja5uUZgrHjF7UMBzhbmJi4XsfOjJPxLpsrog&s=10");
+        }
+
+        .hero-caption {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 8%;
+            z-index: 2;
+            color: #fff;
+            max-width: 500px;
+        }
+
+        .hero-card {
+            background: #232323;
+            border-radius: 12px;
+            padding: 30px;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-box {
+            position: absolute;
+            top: 40px;
+            right: 5%;
+            z-index: 10;
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            max-width: 360px;
+            width: 90%;
+        }
+
+        @media (max-width: 991.98px) {
+            .carousel-item {
+                height: 440px;
+            }
+
+            .hero-caption {
+                left: 5%;
+                right: 5%;
+                max-width: 100%;
+            }
+
+            .floating-box {
+                position: static;
+                margin: 25px auto;
+                width: 100%;
+                max-width: 420px;
+            }
+        }
+
+        .img-grid {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .img-grid:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .faq-section {
+            background-color: #f7f8f9;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #e9ecef;
+            color: #000;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0, 0, 0, .125);
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #cfcfcf;
+        }
+
+        footer h5 {
+            color: #fff;
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+        }
+
+        footer a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .footer-social img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="marquee-container text-white">
+        <div class="marquee-track">
+            <span class="px-4">• MEETING ROOM EXCLUSIVE: 20% OFF * on booking for 4-8 hours | 20% OFF * on Saturdays. •</span>
+            <span class="px-4">• MEETING ROOM EXCLUSIVE: 20% OFF * on booking for 4-8 hours | 20% OFF * on Saturdays. •</span>
+            <span class="px-4">• MEETING ROOM EXCLUSIVE: 20% OFF * on booking for 4-8 hours | 20% OFF * on Saturdays. •</span>
+            <span class="px-4">• MEETING ROOM EXCLUSIVE: 20% OFF * on booking for 4-8 hours | 20% OFF * on Saturdays. •</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top px-3 px-lg-5 py-2">
+        <div class="container-fluid px-0">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img src="https://www.awfis.com/images/logo_black.png" alt="Awfis Logo" style="height: 32px; filter: invert(1);">
+                <img src="https://www.awfis.com/images/GPTW_Cert_2026.png" alt="GPTW Certified" style="height: 28px;">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#awfisNavbar"
+                aria-controls="awfisNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="awfisNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-2">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            LOCATIONS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item protected-route" href="dehli.html">COWORKING SPACE IN DELHI</a></li>
+                            <li><a class="dropdown-item protected-route" href="gurugram1.html">COWORKING SPACE IN GURGAON</a></li>
+                            <li><a class="dropdown-item" href="#">COWORKING SPACE IN BENGALURU</a></li>
+                            <li><a class="dropdown-item" href="#">COWORKING SPACE IN MUMBAI</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SOLUTIONS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">COWORKING</a></li>
+                            <li><a class="dropdown-item" href="#">MOBILITY</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ENTERPRISE
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">TRANSFORM</a></li>
+                            <li><a class="dropdown-item" href="#">MANAGED OFFICE</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#">MEETING ROOMS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">DAY PASS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">VIRTUAL OFFICE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">INVESTOR RELATIONS</a></li>
+                </ul>
+
+                <div id="authContainer" class="d-flex align-items-center gap-3">
+                    <!-- Logged Out View -->
+                    <div id="loggedOutView" class="d-flex align-items-center gap-3">
+                        <a href="login.html" class="nav-link text-white text-decoration-none fw-semibold">LOGIN</a>
+                        <a href="signup.html" class="btn btn-outline-warning btn-sm px-3">SIGN UP</a>
+                    </div>
+
+                    <div id="loggedInView" class="dropdown d-none">
+                        <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center gap-2 py-1 px-3 rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-5 text-warning"></i>
+                            <span class="small fw-semibold">Account</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li><h6 class="dropdown-header">Workspace Member</h6></li>
+                            <li><a class="dropdown-item" href="dehli.html"><i class="bi bi-geo-alt me-2"></i>Delhi Space</a></li>
+                            <li><a class="dropdown-item" href="gurugram1.html"><i class="bi bi-geo-alt me-2"></i>Gurgaon Space</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#" id="logoutBtn"><i class="bi bi-box-arrow-right me-2"></i>Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <section class="carousel-hero position-relative">
+        <div class="floating-box">
+            <img class="img-fluid rounded mb-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXE2nPJBBacszX2-sFl50iR4X6wokTgJkuWSOAPxc0vw&s=10" alt="Workspace booking promo">
+            <div class="mb-2">
+                <input type="tel" class="form-control" placeholder="Enter phone number">
+            </div>
+            <button type="button" class="btn btn-success w-100 fw-bold">Continue</button>
+        </div>
+
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active slide1">
+                    <div class="hero-caption">
+                        <div class="hero-card">
+                            <h2 class="fw-bold mb-2">Elite Enterprise<br>Office Spaces</h2>
+                            <p class="mb-3">At Prestige Trade Centre, Delhi</p>
+                            <button type="button" class="btn btn-light px-4 fw-semibold">Visit now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item slide2">
+                    <div class="hero-caption">
+                        <h1 class="display-6 fw-bold mb-3">
+                            India's Largest<br>Integrated<br>Workspace Solutions Platform
+                        </h1>
+                        <button type="button" class="btn btn-warning px-4 fw-bold">Explore Spaces</button>
+                    </div>
+                </div>
+
+                <div class="carousel-item slide3">
+                    <div class="hero-caption">
+                        <h1 class="display-6 fw-bold mb-3">Discover Transform<br>by Awfis</h1>
+                        <button type="button" class="btn btn-danger btn-lg px-4">Visit now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button> -->
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container text-center mb-4">
+            <h2 class="fw-bold">Our Growing Network</h2>
+            <p class="text-muted">A pan-India presence across major metropolitan hubs</p>
+        </div>
+        <div class="container">
+            <div class="row g-2 g-md-3">
+                <div class="col-6 col-md-3">
+                    <div class="overflow-hidden rounded">
+                        <img class="img-grid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9OAPIa741X_lp4gQDDpbLe8J-bP5fR-PA1FlRGOMH2w&s=10" alt="Workspace 1">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="overflow-hidden rounded">
+                        <img class="img-grid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF_fX9u2zaB2J2PWRB0XInn4lARbHLy5Y5sqXVgDUqLQ&s=10" alt="Workspace 2">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="overflow-hidden rounded">
+                        <img class="img-grid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLPXlon-IdRaWwbrvyqEfkqrQJ88q46fdnIwvRmlHRuQ&s=10" alt="Workspace 3">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="overflow-hidden rounded">
+                        <img class="img-grid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyjTmU8NtezCv6mJRj1Q_TBgrVNUBsQp5EfyEnYc5UJg&s" alt="Workspace 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section py-5">
+        <div class="container text-center mb-5">
+            <h2 class="fw-bold">Frequently Asked Questions</h2>
+            <p class="text-muted">Everything you need to know about our workspaces and memberships</p>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                    <div class="accordion" id="accordionCol1">
+                        <div class="accordion-item mb-3 shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What is coworking space?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionCol1">
+                                <div class="accordion-body text-muted">
+                                    A coworking space is a communal working environment that allows individuals from different organizations, start-ups, and freelancers to work together under one roof. Typically includes high-speed Wi-Fi, printers, meeting lounges, and community networking perks.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    What are the benefits of shared office spaces?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionCol1">
+                                <div class="accordion-body text-muted">
+                                    A shared office space reduces overhead costs, fosters productive networking, gives businesses access to premium addresses, modern tech amenities, and flexible lease terms suited for modern, agile teams.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    What are the mobility solutions offered by Awfis?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionCol1">
+                                <div class="accordion-body text-muted">
+                                    Awfis offers smart mobility solutions like day passes, flexi desks, meeting rooms on demand, and virtual offices across its pan-India locations—tailored for distributed and hybrid workforces.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="accordion" id="accordionCol2">
+                        <div class="accordion-item mb-3 shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Where are Awfis coworking spaces located?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionCol2">
+                                <div class="accordion-body text-muted">
+                                    You'll find Awfis spaces in India across 18+ major cities including Mumbai, Delhi, Bengaluru, Hyderabad, Pune, Kolkata, and Chennai with strategically located enterprise centers.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Can I book a workspace for just a day or few hours?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionCol2">
+                                <div class="accordion-body text-muted">
+                                    Yes, Awfis lets you book coworking desks and meeting rooms by the hour or by the day without requiring any long-term commitment.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 shadow-sm border-0">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Do you offer help with space planning & custom design?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionCol2">
+                                <div class="accordion-body text-muted">
+                                    Absolutely! Through Awfis Transform, we provide complete turnkey workplace solutions—from layout architecture to bespoke ergonomic furnishings and tech integrations.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4 justify-content-between">
+                <div id="a1" class="col-6 col-md-3 col-lg-2">
+                    <h5>About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About Awfis</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Legal</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Workspace Inside</a></li>
+                    </ul>
+                </div>
+
+                <div  class="col-6 col-md-3 col-lg-2">
+                    <h5>Products</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Space Solution</a></li>
+                        <li><a href="#">Coworking</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                        <li><a href="#">Mobility</a></li>
+                        <li><a href="#">Awfis Transform</a></li>
+                        <li><a href="#">Elite</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Request A Visit</a></li>
+                        <li><a href="#">Find Your Space</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-3 col-lg-4">
+                    <h5>Connect With Us</h5>
+                    <div class="footer-social d-flex align-items-center mb-3">
+                        <a href="#"><img src="https://www.awfis.com/images/social_icon_fb.jpg" alt="Facebook"></a>
+                        <a href="#"><img src="https://www.awfis.com/images/social_icon_ins.jpg" alt="Instagram"></a>
+                        <a href="#"><img src="https://www.awfis.com/images/social_icon_twe.jpg" alt="Twitter"></a>
+                        <a href="#"><img src="https://www.awfis.com/images/social_icon_link.jpg" alt="LinkedIn"></a>
+                    </div>
+                    
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <img src="https://www.awfis.com/images/EnvelopeSimple.svg" alt="Email" style="width: 18px;">
+                        <a href="mailto:info@awfis.com" class="mb-0">info@awfis.com</a>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <img src="https://www.awfis.com/images/PhoneCall.svg" alt="Phone" style="width: 18px;">
+                        <a href="tel:18802586633" class="mb-0">1880 258 6633</a>
+                    </div>
+                    <div class="d-flex align-items-start gap-2 mt-2">
+                        <img src="https://www.awfis.com/images/MapPinLine.svg" alt="Address" style="width: 18px;" class="mt-1">
+                        <small class="text-secondary">Awfis Space Solutions Limited, C-28/29, Kissan Bhawan, Qutab Institutional Area, New Delhi - 110016</small>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-4">
+            <div class="text-center text-secondary small">
+                © 2026 Awfis Space Solutions Limited. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const navEntries = performance.getEntriesByType('navigation');
+        const isReload = navEntries.length > 0 
+            ? navEntries[0].type === 'reload' 
+            : performance.navigation.type === 1;
+
+        if (isReload) {
+            sessionStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('isLoggedIn');
+        }
+
+        function applyAuthState() {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+            const loggedOutView = document.getElementById('loggedOutView');
+            const loggedInView = document.getElementById('loggedInView');
+
+            if (isLoggedIn) {
+                loggedOutView.classList.add('d-none');
+                loggedInView.classList.remove('d-none');
+            } else {
+                loggedOutView.classList.remove('d-none');
+                loggedInView.classList.add('d-none');
+            }
+        }
+
+        applyAuthState();
+
+        document.querySelectorAll('.protected-route').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+                if (isLoggedIn) {
+                    window.location.href = this.getAttribute('href');
+                } else {
+                    alert('Please login first to view this workspace.');
+                    window.location.href = 'login.html';
+                }
+            });
+        });
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                sessionStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('isLoggedIn');
+                applyAuthState();
+                alert('You have logged out.');
+            });
+        }
+        const parent=document.querySelector(".container");
+        const children=parent.children;
+        console.log(parent)
+        console.log(children)
+    </script>
+</body>
+</html>
